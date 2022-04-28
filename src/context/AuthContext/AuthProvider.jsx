@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { AuthContext } from "./AuthContext";
 import axios from "axios";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 export const AuthProvider = ({ children }) => {
 	const navigate = useNavigate();
 	const [loading, setLoading] = useState(true);
-
-	const { pathname } = useLocation();
+	const [isLogged, setIsLogged] = useState(false);
 
 	useEffect(() => {
 		navigate("/login");
 		setTimeout(() => {
 			if (localStorage.getItem("token")) {
+				setIsLogged(true);
 				navigate("/");
 			}
 			setLoading(false);
@@ -42,7 +42,7 @@ export const AuthProvider = ({ children }) => {
 	};
 
 	return (
-		<AuthContext.Provider value={{ logIn, loading }}>
+		<AuthContext.Provider value={{ logIn, loading, isLogged }}>
 			{children}
 		</AuthContext.Provider>
 	);

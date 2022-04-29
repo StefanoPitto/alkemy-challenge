@@ -21,7 +21,6 @@ export const useSearch = () => {
 	const handleChange = async (e) => {
 		const { value } = e.target;
 		value.length === 0 ? setSearchValue(undefined) : setSearchValue(value);
-		console.log(process.env.REACT_APP_API_KEY);
 		if (foodList) setFoodList(undefined);
 		if (value.length < 2) return;
 		const response = await foodApi.get("/complexSearch", {

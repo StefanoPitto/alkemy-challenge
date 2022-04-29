@@ -19,9 +19,6 @@ export const MenuProvider = ({ children }) => {
 
 	const addItemMenu = (item) => {
 		let newArray = [...menu, item];
-		console.log(
-			!(item.vegan && validateVegan()) || !(!item.vegan && validateNotVegan())
-		);
 		if (
 			!(item.vegan && validateVegan()) &&
 			!(!item.vegan && validateNotVegan())
@@ -57,7 +54,6 @@ export const MenuProvider = ({ children }) => {
 	};
 
 	const removeItemMenu = (item) => {
-		console.log("remove", item);
 		setMenu(menu.filter((element) => item.id !== element.id));
 		setError({ type: "success", message: "Item removed from Menu" });
 		localStorage.setItem("menu", JSON.stringify(menu));

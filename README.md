@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Alkemy Challenge
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este proyecto fue realizado para alkemy. No pude hacer un deploy del proyecto, dado que el endpoint para realizar el login no es un sitio seguro. Por lo que subi el ".env" para que puedan probar el proyecto.
 
 ## Available Scripts
 

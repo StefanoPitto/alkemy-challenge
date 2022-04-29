@@ -25,7 +25,6 @@ export const AuthProvider = ({ children }) => {
 		let response;
 		try {
 			response = await axios.post("http://challenge-react.alkemy.org/", value);
-			console.log("Respuesta", response.data);
 			localStorage.setItem("token", JSON.stringify(response.data));
 			navigate("/");
 			setLoading(false);
@@ -38,7 +37,6 @@ export const AuthProvider = ({ children }) => {
 				confirmButtonText: "Try Again",
 			});
 		}
-		console.log(value);
 	};
 
 	return (
